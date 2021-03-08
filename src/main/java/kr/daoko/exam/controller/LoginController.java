@@ -1,10 +1,12 @@
 package kr.daoko.exam.controller;
 
+import kr.daoko.exam.annotation.SocialUser;
+import kr.daoko.exam.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class OAuth2UserController {
+public class LoginController {
     @GetMapping("/")
     public String getAuthorizationMessage() {
         return "home";
@@ -15,8 +17,13 @@ public class OAuth2UserController {
         return "login";
     }
 
-    @GetMapping("/board")
-    public String board() {
-        return "board";
+    @GetMapping("/success")
+    public String success(@SocialUser User user) {
+        return "success";
+    }
+
+    @GetMapping("/failure")
+    public String failure() {
+        return "failure";
     }
 }

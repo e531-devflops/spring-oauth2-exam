@@ -2,10 +2,41 @@ spring:
   thymeleaf:
     cache: false
     check-template-location: true
+
   security:
     oauth2:
       client:
         registration:
           google:
-            client-id: # id
-            client-secret: # secret
+            client-id: # client-id
+            client-secret: # client-secret
+          facebook:
+            client-id: # client-id
+            client-secret: # client-secret
+
+  datasource:
+    url: jdbc:h2:file:~/spring-oauth2-exam;AUTO_SERVER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        web-allow-others: true
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+
+custom:
+  oauth2:
+    kakao:
+      client-id: # client-id
+      client-secret: # client-secret
+    naver:
+      client-id: # client-id
+      client-secret: # client-secret
